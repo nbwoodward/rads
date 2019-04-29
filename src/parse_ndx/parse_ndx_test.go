@@ -38,6 +38,13 @@ func TestParseHalflife(t *testing.T) {
 }
 
 func TestParseDaughters(t *testing.T) {
+    /*
+        Test:
+            1 daughter
+            2 daughter
+            3 daughter
+            line with SF
+    */
     if false {
        t.Errorf("error")
     }
