@@ -1,0 +1,3 @@
+.env
+src/parse_ndx/parse_ndx
+bin/parse_ndx
