@@ -7,7 +7,7 @@ GOFILE=parse_ndx.go
 BINARY_NAME=parse_ndx
 BINARY_UNIX=$(BINARY_NAME)_unix
 
-all: build run
+all: build test
 
 build:
 	$(GOBUILD) $(GOFILE)

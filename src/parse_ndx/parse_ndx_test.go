@@ -2,6 +2,7 @@ package main
 
 import (
     "testing"
+    "fmt"
 )
 
 func TestLoadFile(t *testing.T) {
@@ -10,9 +11,49 @@ func TestLoadFile(t *testing.T) {
     file.Close()
 }
 
-func TestParseNdx(t *testing.T) {
+func TestParseHalflife(t *testing.T) {
+    tests := []struct {
+        hl string
+        sec float64
+    }{
+        {"10ms", .01},
+        {"10s", 10},
+        {"10m", 600},
+        {"10h", 36000},
+        {"10d", 864000},
+        {"10y", 315569260.8},
+        {"7E+15y",2.2089848256e+23},
+    }
 
+    for _,r := range tests {
+        hls := ParseHalflife(r.hl)
+        fmt.Println("Trying", r.hl, "should be",r.sec,"got", hls)
+
+        if hls != r.sec {
+           t.Errorf("Halflife was incorrect, entered %s, should have been %f, got %f", r.hl, r.sec, hls)
+        }
+
+    }
+
+}
+
+func TestParseDaughters(t *testing.T) {
     if false {
        t.Errorf("error")
     }
 }
+
+func TestParseLine(t *testing.T) {
+    if false {
+       t.Errorf("error")
+    }
+}
+
+
+/*
+func TestParseNdx(t *testing.T) {
+    if false {
+       t.Errorf("error")
+    }
+}
+*/

@@ -53,6 +53,8 @@ func ParseHalflife(hl string) float64 {
     var val_sec float64
 
     switch unit {
+        case "ms":
+            val_sec = val / 1000
         case "s":
             val_sec = val
         case "m":
